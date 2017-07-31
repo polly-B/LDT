@@ -20,7 +20,11 @@ from numpy import (sin, cos, tan, log, log10, pi, average,
 from numpy.random import random, randint, normal, shuffle
 import os  # handy system and path functions
 import sys  # to get file system encoding
-
+#for button box
+import serial
+import serial.tools.list_ports
+import time, sys, os#, pylab
+import string, random
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemencoding())
 os.chdir(_thisDir)
@@ -48,7 +52,7 @@ logFile = logging.LogFile(filename+'.log', level=logging.EXP)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
-
+useButtonBox = True
 # Start Code - component code to be run before the window creation
 
 # Setup the Window
